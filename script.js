@@ -27,11 +27,11 @@ function compChoose() {
 function random(n) { //Random integer generator
     return Math.floor(Math.random() * n);
 }
-function preparation(){
+function preparation(){ //Asking an input from the user
     question = prompt('Rock, paper or scissors?');
 }
 
-function playerChoosing(){
+function playerChoosing(){ //Assigning one of the three options to the user according to the input
     if (question.toUpperCase() == 'ROCK'){
         player = rock;
     }else if (question.toUpperCase() == 'PAPER'){
@@ -44,7 +44,7 @@ function playerChoosing(){
     }
 }
 
-function fight(player,computer){
+function fight(player,computer){ //Compare the player choice vs the computer choice to get a winner or a tie
     if (player.identity === computer.identity){
         console.log('Its a tie!');
     }else if (player.weakness === computer.identity) {
@@ -54,7 +54,7 @@ function fight(player,computer){
     }
 }
 
-function duel(){
+function duel(){ // Starter of the game on the console
     preparation();
     playerChoosing();
     
