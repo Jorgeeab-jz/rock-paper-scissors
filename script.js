@@ -23,6 +23,7 @@ let compChoice;
 function choice(chc){
     if (player == undefined) {
         player = chc;
+        console.log(player);
     } else if (player) {
         alert('You already made a choice');
     }
@@ -32,7 +33,9 @@ function random(n) { //Random integer generator
     return Math.floor(Math.random() * n);
 }
 function compChoose() {
-    compChoice = options[random(3)];
+    if (!compChoice){compChoice = options[random(3)];
+    console.log(compChoice);
+}
 }
 /*function playerChoosing(){ //Assigning one of the three options to the user according to the input
     if (question.toUpperCase() == 'ROCK'){
