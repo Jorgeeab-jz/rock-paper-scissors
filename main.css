@@ -6,9 +6,9 @@ body {
 
 .player-options {
     display: grid;
-    position: relative;
-    align-self: center;
     grid-template-columns: auto auto auto;
+    margin: auto;
+    
 }
 
 .player-choice {
@@ -21,6 +21,11 @@ body {
     font-family: Alata, sans-serif;
     font-size: 20px;
     border-radius: 8px;
+    justify-self: center;
+    cursor: pointer;
+}
+.player-choice:active {
+    background: rgb(76, 106, 134);
 }
 
 #round {
@@ -78,6 +83,7 @@ body {
     height: 40px;
     position: relative;
     justify-self: center;
+    cursor: pointer;
 }
 
 .bottom {
@@ -94,4 +100,26 @@ body {
     font-family: Alata, sans-serif;
     font-size: 20px;
 
+}
+
+@media (min-width: 700px) {
+    .player-options {
+        width: 400px;
+        justify-self: center;
+        margin: auto;
+        
+    }
+    .selections {
+        width: 300px;
+        margin: auto;
+    }
+    .result-container {
+        width: 400px;
+        justify-self: center;
+        justify-items: center;
+        margin: auto;
+    }
+    #round {
+        justify-self: center;
+    }
 }
