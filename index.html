@@ -7,15 +7,22 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div>
+        <h1 class="title">Rock Paper Scissors!</h1>
+        <p>Click on your choice and then hit the play button to try your luck!</p>
+    </div>
     <div class="player-options">
-        <input class="player-choice" id="rock" type="button" value="Rock">
-        <input class="player-choice" id="paper" type="button" value="Paper">
-        <input class="player-choice" id="scissors" type="button" value="Scissors">
+        <input class="player-choice" id="rock" onclick="choice(rock)" type="button" value="Rock">
+        <input class="player-choice" id="paper" onclick="choice(paper)" type="button" value="Paper">
+        <input class="player-choice" id="scissors" onclick="choice(scissors)" type="button" value="Scissors">
+        <input class="begin" onclick="play()" id="begin" type="button" value="Play!">
+        <input type="button" onclick="reset()" id="reset" value="Reset">
     </div>
     <div>
         <p id="selections"></p>
         <p id="result"></p>
     </div>
+    <div><p>Use the reset button to try again</p></div>
 </body>
 <script src="script.js"></script>
 </html>
