@@ -1,0 +1,97 @@
+body {
+    background: rgba(44, 62, 80,1.0);
+    font-family: Alata, sans-serif;
+}
+
+
+.player-options {
+    display: grid;
+    position: relative;
+    align-self: center;
+    grid-template-columns: auto auto auto;
+}
+
+.player-choice {
+    margin: 10px;
+    width: 90px;
+    height: 60px;
+    background: rgb(27, 37, 46);
+    border: 3px solid white;
+    color: white;
+    font-family: Alata, sans-serif;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+#round {
+    background: black;
+    width: 100px;
+    height: 60px;
+    border-radius: 15px;
+    padding-top: 25px;
+    margin: auto;
+    width: 50%;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.top {
+    text-align: center;
+    color: white;
+}
+
+.top p {
+    color: white;
+}
+
+.actions {
+    display: grid;
+    position: relative;
+    align-self: center;
+    grid-template-columns: auto auto;
+}
+
+.selections {
+    display: grid;
+    grid-template-columns: 80px auto 80px;
+    text-align: center;
+    color: white;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.selection {
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.vs {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.actbuttons {
+    margin: 10px;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    justify-self: center;
+}
+
+.bottom {
+    text-align: center;
+    color: white;
+}
+
+#reset {
+    border-radius: 50%;
+    height: 80px;
+    background: rgb(27, 37, 46);
+    border: 3px solid white;
+    color: white;
+    font-family: Alata, sans-serif;
+    font-size: 20px;
+
+}
