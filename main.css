@@ -2,6 +2,9 @@ body {
     background: rgba(44, 62, 80,1.0);
     font-family: Alata, sans-serif;
 }
+input {
+    outline: none;
+}
 .player-options {
     display: grid;
     grid-template-columns: auto auto auto;

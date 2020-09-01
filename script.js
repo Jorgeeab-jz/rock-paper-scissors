@@ -29,21 +29,15 @@ let compScoreDisp = document.getElementById('comp-score');
 
 function choice(chc){ //assigns one of the three options to the player
     player = chc;
-    console.log(player);
 }
 function random(n) { //Random integer generator
     return Math.floor(Math.random() * n);
 }
 function compChoose() {
     compChoice = options[random(3)];
-    console.log(compChoice);
 }
 function fight(player,computer){ //Compare the player choice vs the computer choice to get a winner or a tie
-    if (player.identity === computer.identity && playerScore > 0){
-        playerScore -= 1;
-    }else if (player.identity === computer.identity && compScore > 0){
-        compScore -=1;
-    }else if (player.weakness === computer.identity) {
+     if (player.weakness === computer.identity) {
         compScore += 1;
     }else if (player.goodAgnst === computer.identity) {
         playerScore += 1;
