@@ -19,6 +19,7 @@ let player;
 let compChoice;
 let playerScore = 0;
 let compScore = 0;
+let winner = false;
 let result = document.getElementById('round');
 let playerChoice = document.getElementById('selectionP');
 let computerChoice = document.getElementById('selectionC');
@@ -27,27 +28,39 @@ let compScoreDisp = document.getElementById('comp-score');
 
 
 function choice(chc){ //assigns one of the three options to the player
-    if (!player) {
-        player = chc;
-        console.log(player);
-    } 
+    player = chc;
+    console.log(player);
 }
 function random(n) { //Random integer generator
     return Math.floor(Math.random() * n);
 }
 function compChoose() {
-    if (!compChoice){compChoice = options[random(3)];
+    compChoice = options[random(3)];
     console.log(compChoice);
 }
-}
 function fight(player,computer){ //Compare the player choice vs the computer choice to get a winner or a tie
-    if (player.identity === computer.identity){
-        result.textContent = `It's a tie!`;
+    if (player.identity === computer.identity && playerScore > 0){
+        playerScore -= 1;
+    }else if (player.identity === computer.identity && compScore > 0){
+        compScore -=1;
     }else if (player.weakness === computer.identity) {
-        result.textContent = `You lose!`;
-    } else if (player.goodAgnst === computer.identity) {
-        result.textContent = `You win!`;
+        compScore += 1;
+    }else if (player.goodAgnst === computer.identity) {
+        playerScore += 1;
     }
+}
+function setWinner(){
+    if (playerScore === 5){
+        result.textContent = 'You win!';
+        winner = true;
+    }else if (compScore === 5){
+        result.textContent = 'You lose!';
+        winner = true;
+    }
+}
+function showScore() {
+    playerScoreDisp.textContent = playerScore;
+    compScoreDisp.textContent = compScore;
 }
 function showSelections (){
     playerChoice.textContent = player.identity;
@@ -59,9 +72,17 @@ function reset() {
     playerChoice.textContent = '';
     computerChoice.textContent = '';
     result.textContent = '';
+    playerScore = 0;
+    compScore = 0;
+    showScore();
+    winner = false;
 }
 function play() {
+    if (!winner){
     compChoose();
     showSelections();
     fight(player,compChoice);
+    setWinner();
+    showScore();
+}
 }
