@@ -16,12 +16,17 @@ let paper = {
 let options = [rock,paper,scissors];//For the computer to choose one
 
 let player;
+let compChoice;
+let playerScore = 0;
+let compScore = 0;
 let result = document.getElementById('round');
 let playerChoice = document.getElementById('selectionP');
 let computerChoice = document.getElementById('selectionC');
-let compChoice;
+let playerScoreDisp = document.getElementById('player-score');
+let compScoreDisp = document.getElementById('comp-score');
 
-function choice(chc){
+
+function choice(chc){ //assigns one of the three options to the player
     if (!player) {
         player = chc;
         console.log(player);
