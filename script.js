@@ -14,7 +14,7 @@ let paper = {
     goodAgnst: 'ROCK'
 };//The three options and their properties
 let options = [rock,paper,scissors];//For the computer to choose one
-
+let background = document.getElementById('background');
 let player;
 let compChoice;
 let playerScore = 0;
@@ -46,9 +46,11 @@ function fight(player,computer){ //Compare the player choice vs the computer cho
 function setWinner(){
     if (playerScore === 5){
         result.textContent = 'You win!';
+        background.classList.toggle('final-win');
         winner = true;
     }else if (compScore === 5){
         result.textContent = 'You lose!';
+        background.classList.toggle('final-lose');
         winner = true;
     }
 }
@@ -56,9 +58,18 @@ function showScore() {
     playerScoreDisp.textContent = playerScore;
     compScoreDisp.textContent = compScore;
 }
+function setSelectionIcon (entity) {
+    if (entity.identity == 'ROCK'){
+        return `<i class="fas fa-hand-rock"></i>`
+    } else if (entity.identity == 'PAPER'){
+        return `<i class="fas fa-hand-paper"></i>`
+    }else if (entity.identity == 'SCISSORS'){
+        return `<i class="fas fa-hand-peace"></i>`
+    }
+}
 function showSelections (){
-    playerChoice.textContent = player.identity;
-    computerChoice.textContent = compChoice.identity; 
+    playerChoice.innerHTML = setSelectionIcon(player);
+    computerChoice.innerHTML = setSelectionIcon(compChoice); 
 }
 function reset() {
     player = undefined;
@@ -70,6 +81,7 @@ function reset() {
     compScore = 0;
     showScore();
     winner = false;
+    background.removeAttribute('class');
 }
 function play() {
     if (!winner){
