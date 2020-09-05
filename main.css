@@ -27,9 +27,10 @@ input {
     color: white;
     font-family: Alata, sans-serif;
     font-size: 30px;
-    border-radius: 8px;
+    border-radius: 15px;
     justify-self: center;
     cursor: pointer;
+    outline: none;
 }
 .player-choice:active {
     background: rgb(76, 106, 134);
@@ -115,7 +116,8 @@ input {
     border: 3px solid white;
     color: white;
     font-family: Alata, sans-serif;
-    font-size: 20px;
+    font-size: 40px;
+    outline: none;
 
 }
 
