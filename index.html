@@ -14,17 +14,21 @@
         <p>Make your choice to try your luck!</p>
     </div>
     <div class="player-options">
-        <button class="player-choice" onclick="choice(rock); play();"><i class="fas fa-hand-rock"></i></button>
-        <button class="player-choice" onclick="choice(paper); play();"><i class="fas fa-hand-paper"></i></button>
-        <button class="player-choice" onclick="choice(scissors); play();"><i class="fas fa-hand-peace"></i></button>
+        <button class="player-choice" onclick="choice(rock); play(); rotateChoices();"><i class="fas fa-hand-rock"></i></button>
+        <button class="player-choice" onclick="choice(paper); play(); rotateChoices();"><i class="fas fa-hand-paper"></i></button>
+        <button class="player-choice" onclick="choice(scissors); play(); rotateChoices();"><i class="fas fa-hand-peace"></i></button>
     </div>
     <div class="selections">
-        <div class="selection">
-            <p id="selectionP"></p>
+        <div class="master-container">
+            <div id="playerContainer" class="selection">
+            <p class="selection-left" id="selectionP"></p>
+            </div>
         </div>
         <p class="vs">VS</p>
-        <div class="selection">
-            <p id="selectionC"></p>
+        <div class="master-container">
+            <div id="computerContainer" class="selection">
+            <p class="selection-right" id="selectionC"></p>
+            </div>
         </div>
         <p class="score" id="player-score">0</p>
         <p></p>

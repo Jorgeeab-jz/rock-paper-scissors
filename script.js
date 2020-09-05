@@ -25,16 +25,45 @@ let playerChoice = document.getElementById('selectionP');
 let computerChoice = document.getElementById('selectionC');
 let playerScoreDisp = document.getElementById('player-score');
 let compScoreDisp = document.getElementById('comp-score');
+let playerContainer = document.getElementById('playerContainer');
+let computerContainer = document.getElementById('computerContainer');
 
-
+function rotatePlayer (){//Restart the animation each turn
+    playerChoice.classList.remove('selection-left');
+    void playerChoice.offsetWidth;
+    playerChoice.classList.add('selection-left');
+    
+}
+function rotateComp (){
+    computerChoice.classList.remove('selection-right');
+    void computerChoice.offsetWidth;
+    computerChoice.classList.add('selection-right');
+    
+}
+function rotateChoices (){
+    rotatePlayer();
+    rotateComp();
+}
+function setRoundColor () { //Sets border color depending on the winner of the round
+    playerContainer.style.cssText = 'border: 3px solid white';
+    computerContainer.style.cssText = 'border: 3px solid white';
+    if (player.weakness == compChoice.identity) {
+        playerContainer.style.cssText = 'border: 3px solid #d63031';
+        computerContainer.style.cssText = 'border: 3px solid #00b894';
+    }else if (player.identity == compChoice.weakness) {
+        playerContainer.style.cssText = 'border: 3px solid #00b894';
+        computerContainer.style.cssText = 'border: 3px solid #d63031'; 
+    }else if (player.identity == compChoice.identity) {
+        playerContainer.style.cssText = 'border: 3px solid #fbc531';
+        computerContainer.style.cssText = 'border: 3px solid #fbc531';
+    }
+}
 function choice(chc){ //assigns one of the three options to the player
     player = chc;
+    compChoice = options[random(3)];
 }
 function random(n) { //Random integer generator
     return Math.floor(Math.random() * n);
-}
-function compChoose() {
-    compChoice = options[random(3)];
 }
 function fight(player,computer){ //Compare the player choice vs the computer choice to get a winner or a tie
      if (player.weakness === computer.identity) {
@@ -71,6 +100,15 @@ function showSelections (){
     playerChoice.innerHTML = setSelectionIcon(player);
     computerChoice.innerHTML = setSelectionIcon(compChoice); 
 }
+function play() {
+    if (!winner){
+    showSelections();
+    fight(player,compChoice);
+    setWinner();
+    showScore();
+    setRoundColor();
+}
+}
 function reset() {
     player = undefined;
     compChoice = undefined;
@@ -82,13 +120,7 @@ function reset() {
     showScore();
     winner = false;
     background.removeAttribute('class');
+    playerContainer.style.cssText = 'border: 3px solid white';
+    computerContainer.style.cssText = 'border: 3px solid white';
 }
-function play() {
-    if (!winner){
-    compChoose();
-    showSelections();
-    fight(player,compChoice);
-    setWinner();
-    showScore();
-}
-}
+
