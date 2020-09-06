@@ -47,19 +47,17 @@ function rotateChoices (){
     }
     setWinner();
 }
-function setRoundColor () { //Sets border color depending on the winner of the round
-    playerContainer.style.cssText = 'border: 3px solid white';
-    computerContainer.style.cssText = 'border: 3px solid white';
-    if (player.weakness == compChoice.identity) {
-        playerContainer.style.cssText = 'border: 3px solid #d63031';
-        computerContainer.style.cssText = 'border: 3px solid #00b894';
-    }else if (player.identity == compChoice.weakness) {
-        playerContainer.style.cssText = 'border: 3px solid #00b894';
-        computerContainer.style.cssText = 'border: 3px solid #d63031'; 
-    }else if (player.identity == compChoice.identity) {
-        playerContainer.style.cssText = 'border: 3px solid #fbc531';
-        computerContainer.style.cssText = 'border: 3px solid #fbc531';
-    }
+function setColorLose () {
+    playerContainer.style.cssText = 'border: 3px solid #d63031';
+    computerContainer.style.cssText = 'border: 3px solid #00b894';
+}
+function setColorWin () {
+    playerContainer.style.cssText = 'border: 3px solid #00b894';
+    computerContainer.style.cssText = 'border: 3px solid #d63031'; 
+}
+function setColorTie () {
+    playerContainer.style.cssText = 'border: 3px solid #fbc531';
+    computerContainer.style.cssText = 'border: 3px solid #fbc531';
 }
 function choice(chc){ //assigns one of the three options to the player
     player = chc;
@@ -71,8 +69,12 @@ function random(n) { //Random integer generator
 function fight(player,computer){ //Compare the player choice vs the computer choice to get a winner or a tie
      if (player.weakness === computer.identity) {
         compScore += 1;
+        setColorLose();
     }else if (player.goodAgnst === computer.identity) {
         playerScore += 1;
+        setColorWin();
+    }else if (player.identity === computer.identity) {
+        setColorTie();
     }
 }
 function setWinner(){
@@ -108,7 +110,6 @@ function play() {
     showSelections();
     fight(player,compChoice);
     showScore();
-    setRoundColor();
 }
 }
 function reset() {
