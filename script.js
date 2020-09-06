@@ -41,8 +41,10 @@ function rotateComp (){
     
 }
 function rotateChoices (){
-    rotatePlayer();
-    rotateComp();
+    if (!winner) {
+        rotatePlayer();
+        rotateComp();
+    }
 }
 function setRoundColor () { //Sets border color depending on the winner of the round
     playerContainer.style.cssText = 'border: 3px solid white';
