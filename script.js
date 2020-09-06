@@ -45,6 +45,7 @@ function rotateChoices (){
         rotatePlayer();
         rotateComp();
     }
+    setWinner();
 }
 function setRoundColor () { //Sets border color depending on the winner of the round
     playerContainer.style.cssText = 'border: 3px solid white';
@@ -77,11 +78,11 @@ function fight(player,computer){ //Compare the player choice vs the computer cho
 function setWinner(){
     if (playerScore === 5){
         result.textContent = 'You win!';
-        background.classList.toggle('final-win');
+        background.classList.add('final-win');
         winner = true;
     }else if (compScore === 5){
         result.textContent = 'You lose!';
-        background.classList.toggle('final-lose');
+        background.classList.add('final-lose');
         winner = true;
     }
 }
@@ -106,7 +107,6 @@ function play() {
     if (!winner){
     showSelections();
     fight(player,compChoice);
-    setWinner();
     showScore();
     setRoundColor();
 }
